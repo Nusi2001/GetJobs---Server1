@@ -40,7 +40,6 @@ namespace Server.Data
                 }
                 else
                 {
-                    // Optional: log this to debug
                     throw new Exception("Admin user creation failed: " + string.Join(", ", result.Errors.Select(e => e.Description)));
                 }
             }
