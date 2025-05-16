@@ -122,3 +122,4 @@ C:\Users\Dell\OneDrive\Desktop\Server\obj\Debug\net8.0\refint\GetJobsBackend.dll
 C:\Users\Dell\OneDrive\Desktop\Server\obj\Debug\net8.0\GetJobsBackend.pdb
 C:\Users\Dell\OneDrive\Desktop\Server\obj\Debug\net8.0\GetJobsBackend.genruntimeconfig.cache
 C:\Users\Dell\OneDrive\Desktop\Server\obj\Debug\net8.0\ref\GetJobsBackend.dll
+C:\Users\Dell\OneDrive\Desktop\Server\obj\Debug\net8.0\GetJobsBackend.sourcelink.json

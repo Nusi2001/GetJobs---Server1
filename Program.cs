@@ -8,7 +8,13 @@ using Server.Models;
 using Server.Services;
 using System.Text;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+{
+    Args = args,
+    WebRootPath = "wwwroot"
+});
+
+builder.WebHost.UseUrls("http://*:8080");
 
 var config = builder.Configuration;
 var jwtKey = config["Jwt:Key"];
@@ -71,13 +77,14 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 var app = builder.Build();
+
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    var db = services.GetRequiredService<ApplicationDbContext>();
     db.Database.Migrate();
     await RoleSeeder.SeedRolesAndAdminAsync(services);
-    await DataSeeder.SeedSampleDataAsync(services.GetRequiredService<ApplicationDbContext>());
+    await DataSeeder.SeedSampleDataAsync(db);
 }
 
 app.UseCors();
