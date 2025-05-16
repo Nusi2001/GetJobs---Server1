@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GetJobsBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e20f3ce73fdb0dee54d65e1f3745dec6ea51ba2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c2983a4edd6220e95058ca641574f9c958ce770")]
 [assembly: System.Reflection.AssemblyProductAttribute("GetJobsBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GetJobsBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

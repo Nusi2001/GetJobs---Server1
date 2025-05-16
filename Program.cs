@@ -45,11 +45,14 @@ builder.Services.AddScoped<JwtHandler>();
 
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(policy =>
-        policy.WithOrigins("http://localhost:4200", "https://getjobs-client.netlify.app/")
-              .AllowAnyHeader()
-              .AllowAnyMethod()
-              .AllowCredentials());
+    options.AddPolicy("AllowNetlify",
+        policy =>
+        {
+            policy.WithOrigins("https://getjobs-client.netlify.app")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials();
+        });
 });
 
 builder.Services.AddControllers();
@@ -87,7 +90,7 @@ using (var scope = app.Services.CreateScope())
     await DataSeeder.SeedSampleDataAsync(db);
 }
 
-app.UseCors();
+app.UseCors("AllowNetlify");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
