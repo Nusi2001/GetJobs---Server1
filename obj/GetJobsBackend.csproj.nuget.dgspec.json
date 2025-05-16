@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dell\\OneDrive\\Desktop\\server\\GetJobsBackend.csproj": {}
+    "C:\\Users\\Dell\\OneDrive\\Desktop\\Server\\GetJobsBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dell\\OneDrive\\Desktop\\server\\GetJobsBackend.csproj": {
+    "C:\\Users\\Dell\\OneDrive\\Desktop\\Server\\GetJobsBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dell\\OneDrive\\Desktop\\server\\GetJobsBackend.csproj",
+        "projectUniqueName": "C:\\Users\\Dell\\OneDrive\\Desktop\\Server\\GetJobsBackend.csproj",
         "projectName": "GetJobsBackend",
-        "projectPath": "C:\\Users\\Dell\\OneDrive\\Desktop\\server\\GetJobsBackend.csproj",
+        "projectPath": "C:\\Users\\Dell\\OneDrive\\Desktop\\Server\\GetJobsBackend.csproj",
         "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dell\\OneDrive\\Desktop\\server\\obj\\",
+        "outputPath": "C:\\Users\\Dell\\OneDrive\\Desktop\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

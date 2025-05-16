@@ -74,6 +74,8 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
+    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    db.Database.Migrate();
     await RoleSeeder.SeedRolesAndAdminAsync(services);
     await DataSeeder.SeedSampleDataAsync(services.GetRequiredService<ApplicationDbContext>());
 }
