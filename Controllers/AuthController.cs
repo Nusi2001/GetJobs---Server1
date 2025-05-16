@@ -10,7 +10,7 @@ using System.Text;
 namespace Server.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api")]
 public class AuthController : ControllerBase
 {
     private readonly UserManager<ApplicationUser> _userManager;
