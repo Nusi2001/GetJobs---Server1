@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Server.Dtos;
+using Server.DTOs;
 using Server.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -20,6 +21,23 @@ public class AuthController : ControllerBase
     {
         _userManager = userManager;
         _config = config;
+    }
+
+    [HttpPost("register")]
+    public async Task<IActionResult> Register([FromBody] RegisterDto request)
+    {
+        var user = new ApplicationUser
+        {
+            Email = request.Email,
+            UserName = request.Email
+        };
+
+        var result = await _userManager.CreateAsync(user, request.Password);
+        if (!result.Succeeded)
+            return BadRequest(result.Errors);
+
+        await _userManager.AddToRoleAsync(user, "Member");
+        return Ok(new { message = "Registration successful." });
     }
 
     [HttpPost("login")]
@@ -53,5 +71,5 @@ public class AuthController : ControllerBase
         }
 
         return Unauthorized("Invalid credentials");
-    }
+    }
 }
