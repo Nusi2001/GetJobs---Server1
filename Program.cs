@@ -94,8 +94,12 @@ app.UseCors("AllowNetlify");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapControllers();
 app.UseSwagger();
-app.UseSwaggerUI();
-
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "GetJobs API V1");
+    c.RoutePrefix = string.Empty;
+});
+app.MapGet("/", () => "GetJobs API is running.");
+app.MapControllers();
 app.Run();
