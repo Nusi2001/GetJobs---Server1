@@ -46,7 +46,7 @@ builder.Services.AddScoped<JwtHandler>();
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
-        policy.WithOrigins("http://localhost:4200")
+        policy.WithOrigins("http://localhost:4200", "https://getjobs-client.netlify.app/")
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials());
