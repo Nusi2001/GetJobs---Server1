@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cs617025\\Desktop\\GetJobs---Server1-master\\GetJobs---Server1-master\\GetJobsBackend.csproj": {}
+    "C:\\Users\\cs617025\\Desktop\\GetJobs---Server1-master\\GetJobsBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cs617025\\Desktop\\GetJobs---Server1-master\\GetJobs---Server1-master\\GetJobsBackend.csproj": {
+    "C:\\Users\\cs617025\\Desktop\\GetJobs---Server1-master\\GetJobsBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cs617025\\Desktop\\GetJobs---Server1-master\\GetJobs---Server1-master\\GetJobsBackend.csproj",
+        "projectUniqueName": "C:\\Users\\cs617025\\Desktop\\GetJobs---Server1-master\\GetJobsBackend.csproj",
         "projectName": "GetJobsBackend",
-        "projectPath": "C:\\Users\\cs617025\\Desktop\\GetJobs---Server1-master\\GetJobs---Server1-master\\GetJobsBackend.csproj",
+        "projectPath": "C:\\Users\\cs617025\\Desktop\\GetJobs---Server1-master\\GetJobsBackend.csproj",
         "packagesPath": "C:\\Users\\cs617025\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cs617025\\Desktop\\GetJobs---Server1-master\\GetJobs---Server1-master\\obj\\",
+        "outputPath": "C:\\Users\\cs617025\\Desktop\\GetJobs---Server1-master\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\cs617025\\AppData\\Roaming\\NuGet\\NuGet.Config"

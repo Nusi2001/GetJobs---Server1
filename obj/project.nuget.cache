@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HB2A2Hw+Vxw=",
+  "dgSpecHash": "bol5O1qqsCs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\cs617025\\Desktop\\GetJobs---Server1-master\\GetJobs---Server1-master\\GetJobsBackend.csproj",
+  "projectFilePath": "C:\\Users\\cs617025\\Desktop\\GetJobs---Server1-master\\GetJobsBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cs617025\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\cs617025\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.4\\microsoft.aspnetcore.authentication.jwtbearer.8.0.4.nupkg.sha512",

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5zgvPoRhvUCbmMz2k+Y6OchnJDwQc8xbFJw32qdUyyQ=",
+  "Hash": "ltV5gmt6InQKJVh6j0VudOXdERhqD3aE2TVFjdLB0LQ=",
   "Source": "GetJobsBackend",
   "BasePath": "_content/GetJobsBackend",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "GetJobsBackend\\wwwroot",
       "Source": "GetJobsBackend",
-      "ContentRoot": "C:\\Users\\cs617025\\Desktop\\GetJobs---Server1-master\\GetJobs---Server1-master\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\cs617025\\Desktop\\GetJobs---Server1-master\\wwwroot\\",
       "BasePath": "_content/GetJobsBackend",
       "Pattern": "**"
     }
