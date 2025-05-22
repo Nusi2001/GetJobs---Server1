@@ -1,0 +1,107 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using Server.Data;
+using Server.Models;
+using Server.Services;
+using System.Text;
+
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+{
+    Args = args,
+    WebRootPath = "wwwroot"
+});
+
+builder.WebHost.UseUrls("http://*:8080");
+
+var config = builder.Configuration;
+var jwtKey = config["Jwt:Key"];
+var jwtIssuer = config["Jwt:Issuer"];
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(config.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = jwtIssuer,
+            ValidAudience = config["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey!))
+        };
+    });
+
+builder.Services.AddScoped<JwtHandler>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowNetlify",
+        policy =>
+        {
+            policy.WithOrigins("https://getjobs-client.netlify.app")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials();
+        });
+});
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
+            },
+            Array.Empty<string>()
+        }
+    });
+});
+
+var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var db = services.GetRequiredService<ApplicationDbContext>();
+    var context = services.GetRequiredService<ApplicationDbContext>();
+    db.Database.Migrate();
+    await RoleSeeder.SeedRolesAndAdminAsync(services);
+    await DataSeeder.SeedSampleDataAsync(db);
+    await DataSeeder.SeedCompaniesAsync(context);
+}
+
+app.UseCors("AllowNetlify");
+app.UseHttpsRedirection();
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "GetJobs API V1");
+    c.RoutePrefix = string.Empty;
+});
+app.MapGet("/", () => "GetJobs API is running.");
+app.MapControllers();
+app.Run();
