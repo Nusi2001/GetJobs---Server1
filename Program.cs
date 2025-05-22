@@ -86,7 +86,7 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     var db = services.GetRequiredService<ApplicationDbContext>();
     var context = services.GetRequiredService<ApplicationDbContext>();
-    db.Database.Migrate();
+    //db.Database.Migrate();
     await RoleSeeder.SeedRolesAndAdminAsync(services);
     await DataSeeder.SeedSampleDataAsync(db);
     await DataSeeder.SeedCompaniesAsync(context);
