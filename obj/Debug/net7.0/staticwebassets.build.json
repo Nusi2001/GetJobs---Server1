@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "4UdwF7i95xx9TzDBcrFPESmCbyRGoBL7SFYAcz87/Aw=",
+  "Source": "GetJobsBackend",
+  "BasePath": "_content/GetJobsBackend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
